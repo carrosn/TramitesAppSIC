@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "co.gov.sic.tramitesapp",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.9.1",
+    "applicationType": "monolith",
+    "baseName": "TramitesApp",
+    "packageName": "co.gov.sic.tramitesapp",
+    "packageFolder": "co/gov/sic/tramitesapp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OTExYzNhZGUyZDYxMzVmNTA2ZjYwNzhhZDg3NDEzNzU3ZGMyNjgwM2FlYWEzMTRkNDk5NzAxM2RlYzQyYWNkMDRjZDFjM2E5NDgxMGRhNjA2MTE1NmMyMTkwODg5NTdhMmJkZDhmZDRkOTE2OGQyMDlmOWE1ZTk0YzM4ODFkMmI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1629240257189,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es"],
+    "blueprints": []
+  }
+}
