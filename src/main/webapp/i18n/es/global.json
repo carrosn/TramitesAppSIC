@@ -7,6 +7,13 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "tipoPersona": "Tipo Persona",
+        "tipoDocumentoIdentificacion": "Tipo Documento Identificacion",
+        "persona": "Persona",
+        "tramites": "Tramites",
+        "nivelSatisfacion": "Nivel Satisfacion",
+        "encuesta": "Encuesta",
+        "usuarios": "Usuarios",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

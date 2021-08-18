@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nivelSatisfacion">
+            <h2><span jhiTranslate="tramitesApp.nivelSatisfacion.detail.title">Nivel Satisfacion</span> {{ nivelSatisfacion.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tramitesApp.nivelSatisfacion.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{ nivelSatisfacion.codigo }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.nivelSatisfacion.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{ nivelSatisfacion.descripcion }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nivel-satisfacion', nivelSatisfacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

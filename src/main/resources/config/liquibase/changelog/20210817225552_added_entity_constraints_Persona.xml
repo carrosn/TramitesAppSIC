@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Persona.
+    -->
+    <changeSet id="20210817225552-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_documento_identificacion_id"
+                                 baseTableName="persona"
+                                 constraintName="fk_persona_tipo_documento_identificacion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_documento_identificacion"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_persona_id"
+                                 baseTableName="persona"
+                                 constraintName="fk_persona_tipo_persona_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_persona"/>
+
+    </changeSet>
+</databaseChangeLog>

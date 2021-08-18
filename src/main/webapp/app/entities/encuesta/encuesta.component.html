@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tramitesApp.encuesta.home.title">Encuestas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-encuesta" [routerLink]="['/encuesta/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tramitesApp.encuesta.home.createLabel">
+            Create a new Encuesta
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="encuestas?.length === 0">
+        <span jhiTranslate="tramitesApp.encuesta.home.notFound">No encuestas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="encuestas && encuestas.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="preguntaOne"><span jhiTranslate="tramitesApp.encuesta.preguntaOne">Pregunta One</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="niveSatisfacion"><span jhiTranslate="tramitesApp.encuesta.niveSatisfacion">Nive Satisfacion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nivelSatisfacion.codigo"><span jhiTranslate="tramitesApp.encuesta.nivelSatisfacion">Nivel Satisfacion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let encuesta of encuestas ;trackBy: trackId">
+                    <td><a [routerLink]="['/encuesta', encuesta.id, 'view']">{{ encuesta.id }}</a></td>
+                    <td>{{ encuesta.preguntaOne }}</td>
+                    <td>{{ encuesta.niveSatisfacion }}</td>
+                    <td>
+                        <div *ngIf="encuesta.nivelSatisfacion">
+                            <a [routerLink]="['/nivel-satisfacion', encuesta.nivelSatisfacion?.id, 'view']" >{{ encuesta.nivelSatisfacion?.codigo }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/encuesta', encuesta.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/encuesta', encuesta.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(encuesta)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

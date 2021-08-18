@@ -1,0 +1,23 @@
+{
+  "tramitesApp": {
+    "tipoPersona": {
+      "home": {
+        "title": "Tipo Personas",
+        "createLabel": "Crear nuevo Tipo Persona",
+        "createOrEditLabel": "Crear o editar Tipo Persona",
+        "notFound": "Ningún Tipo Personas encontrado"
+      },
+      "created": "Un nuevo Tipo Persona ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Persona ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Persona ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Persona"
+      },
+      "codigo": "Codigo",
+      "descripcion": "Descripcion"
+    }
+  }
+}

@@ -48,6 +48,13 @@ public class CacheConfiguration {
             createCache(cm, co.gov.sic.tramitesapp.domain.User.class.getName());
             createCache(cm, co.gov.sic.tramitesapp.domain.Authority.class.getName());
             createCache(cm, co.gov.sic.tramitesapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, co.gov.sic.tramitesapp.domain.TipoPersona.class.getName());
+            createCache(cm, co.gov.sic.tramitesapp.domain.TipoDocumentoIdentificacion.class.getName());
+            createCache(cm, co.gov.sic.tramitesapp.domain.Persona.class.getName());
+            createCache(cm, co.gov.sic.tramitesapp.domain.Tramites.class.getName());
+            createCache(cm, co.gov.sic.tramitesapp.domain.NivelSatisfacion.class.getName());
+            createCache(cm, co.gov.sic.tramitesapp.domain.Encuesta.class.getName());
+            createCache(cm, co.gov.sic.tramitesapp.domain.Usuarios.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

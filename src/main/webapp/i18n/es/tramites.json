@@ -1,0 +1,29 @@
+{
+  "tramitesApp": {
+    "tramites": {
+      "home": {
+        "title": "Tramites",
+        "createLabel": "Crear nuevo Tramites",
+        "createOrEditLabel": "Crear o editar Tramites",
+        "notFound": "Ningún Tramites encontrado"
+      },
+      "created": "Un nuevo Tramites ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tramites ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tramites ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tramites {{ id }}?"
+      },
+      "detail": {
+        "title": "Tramites"
+      },
+      "numeroTramite": "Numero Tramite",
+      "anno": "Anno",
+      "nombreTramite": "Nombre Tramite",
+      "descripcion": "Descripcion",
+      "personaRadica": "Persona Radica",
+      "funcionario": "Funcionario",
+      "radicaPersona": "Radica Persona",
+      "funcionarioPersona": "Funcionario Persona"
+    }
+  }
+}

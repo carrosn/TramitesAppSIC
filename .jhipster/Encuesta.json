@@ -1,0 +1,40 @@
+{
+  "name": "Encuesta",
+  "fields": [
+    {
+      "fieldName": "preguntaOne",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "niveSatisfacion",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "nivelSatisfacion",
+      "otherEntityRelationshipName": "encuesta",
+      "relationshipValidateRules": "required",
+      "relationshipName": "nivelSatisfacion",
+      "otherEntityField": "codigo"
+    }
+  ],
+  "changelogDate": "20210817225852",
+  "entityTableName": "encuesta",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

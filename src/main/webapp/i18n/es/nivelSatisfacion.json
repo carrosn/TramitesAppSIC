@@ -1,0 +1,23 @@
+{
+  "tramitesApp": {
+    "nivelSatisfacion": {
+      "home": {
+        "title": "Nivel Satisfacions",
+        "createLabel": "Crear nuevo Nivel Satisfacion",
+        "createOrEditLabel": "Crear o editar Nivel Satisfacion",
+        "notFound": "Ningún Nivel Satisfacions encontrado"
+      },
+      "created": "Un nuevo Nivel Satisfacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Nivel Satisfacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Nivel Satisfacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Nivel Satisfacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Nivel Satisfacion"
+      },
+      "codigo": "Codigo",
+      "descripcion": "Descripcion"
+    }
+  }
+}

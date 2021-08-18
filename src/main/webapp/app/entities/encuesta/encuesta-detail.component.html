@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="encuesta">
+            <h2><span jhiTranslate="tramitesApp.encuesta.detail.title">Encuesta</span> {{ encuesta.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tramitesApp.encuesta.preguntaOne">Pregunta One</span></dt>
+                <dd>
+                    <span>{{ encuesta.preguntaOne }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.encuesta.niveSatisfacion">Nive Satisfacion</span></dt>
+                <dd>
+                    <span>{{ encuesta.niveSatisfacion }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.encuesta.nivelSatisfacion">Nivel Satisfacion</span></dt>
+                <dd>
+                    <div *ngIf="encuesta.nivelSatisfacion">
+                        <a [routerLink]="['/nivel-satisfacion', encuesta.nivelSatisfacion?.id, 'view']">{{ encuesta.nivelSatisfacion?.codigo }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/encuesta', encuesta.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

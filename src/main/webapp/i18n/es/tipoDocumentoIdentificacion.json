@@ -1,0 +1,23 @@
+{
+  "tramitesApp": {
+    "tipoDocumentoIdentificacion": {
+      "home": {
+        "title": "Tipo Documento Identificacions",
+        "createLabel": "Crear nuevo Tipo Documento Identificacion",
+        "createOrEditLabel": "Crear o editar Tipo Documento Identificacion",
+        "notFound": "Ningún Tipo Documento Identificacions encontrado"
+      },
+      "created": "Un nuevo Tipo Documento Identificacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Documento Identificacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Documento Identificacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Documento Identificacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Documento Identificacion"
+      },
+      "nombre": "Nombre",
+      "abreviatura": "Abreviatura"
+    }
+  }
+}

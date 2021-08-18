@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tramitesApp.tramites.home.title">Tramites</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tramites" [routerLink]="['/tramites/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tramitesApp.tramites.home.createLabel">
+            Create a new Tramites
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tramites?.length === 0">
+        <span jhiTranslate="tramitesApp.tramites.home.notFound">No tramites found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tramites && tramites.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroTramite"><span jhiTranslate="tramitesApp.tramites.numeroTramite">Numero Tramite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="anno"><span jhiTranslate="tramitesApp.tramites.anno">Anno</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombreTramite"><span jhiTranslate="tramitesApp.tramites.nombreTramite">Nombre Tramite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descripcion"><span jhiTranslate="tramitesApp.tramites.descripcion">Descripcion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personaRadica"><span jhiTranslate="tramitesApp.tramites.personaRadica">Persona Radica</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="funcionario"><span jhiTranslate="tramitesApp.tramites.funcionario">Funcionario</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="radicaPersona.id"><span jhiTranslate="tramitesApp.tramites.radicaPersona">Radica Persona</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="funcionarioPersona.id"><span jhiTranslate="tramitesApp.tramites.funcionarioPersona">Funcionario Persona</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let tramites of tramites ;trackBy: trackId">
+                    <td><a [routerLink]="['/tramites', tramites.id, 'view']">{{ tramites.id }}</a></td>
+                    <td>{{ tramites.numeroTramite }}</td>
+                    <td>{{ tramites.anno }}</td>
+                    <td>{{ tramites.nombreTramite }}</td>
+                    <td>{{ tramites.descripcion }}</td>
+                    <td>{{ tramites.personaRadica }}</td>
+                    <td>{{ tramites.funcionario }}</td>
+                    <td>
+                        <div *ngIf="tramites.radicaPersona">
+                            <a [routerLink]="['/persona', tramites.radicaPersona?.id, 'view']" >{{ tramites.radicaPersona?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tramites.funcionarioPersona">
+                            <a [routerLink]="['/persona', tramites.funcionarioPersona?.id, 'view']" >{{ tramites.funcionarioPersona?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tramites', tramites.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tramites', tramites.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tramites)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

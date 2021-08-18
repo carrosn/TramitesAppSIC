@@ -1,0 +1,24 @@
+{
+  "tramitesApp": {
+    "encuesta": {
+      "home": {
+        "title": "Encuestas",
+        "createLabel": "Crear nuevo Encuesta",
+        "createOrEditLabel": "Crear o editar Encuesta",
+        "notFound": "Ningún Encuestas encontrado"
+      },
+      "created": "Un nuevo Encuesta ha sido creado con el identificador {{ param }}",
+      "updated": "Un Encuesta ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Encuesta ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Encuesta {{ id }}?"
+      },
+      "detail": {
+        "title": "Encuesta"
+      },
+      "preguntaOne": "Pregunta One",
+      "niveSatisfacion": "Nive Satisfacion",
+      "nivelSatisfacion": "Nivel Satisfacion"
+    }
+  }
+}

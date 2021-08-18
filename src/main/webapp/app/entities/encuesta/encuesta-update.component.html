@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-encuesta-heading" jhiTranslate="tramitesApp.encuesta.home.createOrEditLabel">Create or edit a Encuesta</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.encuesta.preguntaOne" for="field_preguntaOne">Pregunta One</label>
+                    <input type="text" class="form-control" name="preguntaOne" id="field_preguntaOne"
+                           formControlName="preguntaOne"/>
+                    <div *ngIf="editForm.get('preguntaOne')!.invalid && (editForm.get('preguntaOne')!.dirty || editForm.get('preguntaOne')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('preguntaOne')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.encuesta.niveSatisfacion" for="field_niveSatisfacion">Nive Satisfacion</label>
+                    <input type="text" class="form-control" name="niveSatisfacion" id="field_niveSatisfacion"
+                           formControlName="niveSatisfacion"/>
+                    <div *ngIf="editForm.get('niveSatisfacion')!.invalid && (editForm.get('niveSatisfacion')!.dirty || editForm.get('niveSatisfacion')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('niveSatisfacion')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.encuesta.nivelSatisfacion" for="field_nivelSatisfacion">Nivel Satisfacion</label>
+                    <select class="form-control" id="field_nivelSatisfacion" name="nivelSatisfacion" formControlName="nivelSatisfacion">
+                        <option *ngIf="!editForm.get('nivelSatisfacion')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="nivelSatisfacionOption.id === editForm.get('nivelSatisfacion')!.value?.id ? editForm.get('nivelSatisfacion')!.value : nivelSatisfacionOption" *ngFor="let nivelSatisfacionOption of nivelsatisfacions; trackBy: trackById">{{ nivelSatisfacionOption.codigo }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('nivelSatisfacion')!.invalid && (editForm.get('nivelSatisfacion')!.dirty || editForm.get('nivelSatisfacion')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('nivelSatisfacion')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

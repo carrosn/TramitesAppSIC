@@ -1,0 +1,71 @@
+{
+  "name": "Persona",
+  "fields": [
+    {
+      "fieldName": "numeroDocumentoIdentificacion",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "nombres",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "apellidos",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "segundoApellido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoDocumentoIdentificacion",
+      "otherEntityRelationshipName": "persona",
+      "relationshipValidateRules": "required",
+      "relationshipName": "tipoDocumentoIdentificacion",
+      "otherEntityField": "abreviatura"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoPersona",
+      "otherEntityRelationshipName": "persona",
+      "relationshipValidateRules": "required",
+      "relationshipName": "tipoPersona",
+      "otherEntityField": "codigo"
+    }
+  ],
+  "changelogDate": "20210817225552",
+  "entityTableName": "persona",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

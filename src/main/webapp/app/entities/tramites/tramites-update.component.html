@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tramites-heading" jhiTranslate="tramitesApp.tramites.home.createOrEditLabel">Create or edit a Tramites</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.tramites.numeroTramite" for="field_numeroTramite">Numero Tramite</label>
+                    <input type="text" class="form-control" name="numeroTramite" id="field_numeroTramite"
+                           formControlName="numeroTramite"/>
+                    <div *ngIf="editForm.get('numeroTramite')!.invalid && (editForm.get('numeroTramite')!.dirty || editForm.get('numeroTramite')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroTramite')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.tramites.anno" for="field_anno">Anno</label>
+                    <input type="text" class="form-control" name="anno" id="field_anno"
+                           formControlName="anno"/>
+                    <div *ngIf="editForm.get('anno')!.invalid && (editForm.get('anno')!.dirty || editForm.get('anno')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('anno')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.tramites.nombreTramite" for="field_nombreTramite">Nombre Tramite</label>
+                    <input type="text" class="form-control" name="nombreTramite" id="field_nombreTramite"
+                           formControlName="nombreTramite"/>
+                    <div *ngIf="editForm.get('nombreTramite')!.invalid && (editForm.get('nombreTramite')!.dirty || editForm.get('nombreTramite')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombreTramite')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.tramites.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                    <div *ngIf="editForm.get('descripcion')!.invalid && (editForm.get('descripcion')!.dirty || editForm.get('descripcion')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descripcion')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.tramites.personaRadica" for="field_personaRadica">Persona Radica</label>
+                    <input type="text" class="form-control" name="personaRadica" id="field_personaRadica"
+                           formControlName="personaRadica"/>
+                    <div *ngIf="editForm.get('personaRadica')!.invalid && (editForm.get('personaRadica')!.dirty || editForm.get('personaRadica')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('personaRadica')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.tramites.funcionario" for="field_funcionario">Funcionario</label>
+                    <input type="text" class="form-control" name="funcionario" id="field_funcionario"
+                           formControlName="funcionario"/>
+                    <div *ngIf="editForm.get('funcionario')!.invalid && (editForm.get('funcionario')!.dirty || editForm.get('funcionario')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('funcionario')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.tramites.radicaPersona" for="field_radicaPersona">Radica Persona</label>
+                    <select class="form-control" id="field_radicaPersona" name="radicaPersona" formControlName="radicaPersona">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personaOption.id === editForm.get('radicaPersona')!.value?.id ? editForm.get('radicaPersona')!.value : personaOption" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tramitesApp.tramites.funcionarioPersona" for="field_funcionarioPersona">Funcionario Persona</label>
+                    <select class="form-control" id="field_funcionarioPersona" name="funcionarioPersona" formControlName="funcionarioPersona">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personaOption.id === editForm.get('funcionarioPersona')!.value?.id ? editForm.get('funcionarioPersona')!.value : personaOption" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="persona">
+            <h2><span jhiTranslate="tramitesApp.persona.detail.title">Persona</span> {{ persona.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tramitesApp.persona.numeroDocumentoIdentificacion">Numero Documento Identificacion</span></dt>
+                <dd>
+                    <span>{{ persona.numeroDocumentoIdentificacion }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.persona.nombres">Nombres</span></dt>
+                <dd>
+                    <span>{{ persona.nombres }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.persona.apellidos">Apellidos</span></dt>
+                <dd>
+                    <span>{{ persona.apellidos }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.persona.segundoApellido">Segundo Apellido</span></dt>
+                <dd>
+                    <span>{{ persona.segundoApellido }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.persona.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{ persona.telefono }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.persona.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{ persona.direccion }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.persona.email">Email</span></dt>
+                <dd>
+                    <span>{{ persona.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.persona.tipoDocumentoIdentificacion">Tipo Documento Identificacion</span></dt>
+                <dd>
+                    <div *ngIf="persona.tipoDocumentoIdentificacion">
+                        <a [routerLink]="['/tipo-documento-identificacion', persona.tipoDocumentoIdentificacion?.id, 'view']">{{ persona.tipoDocumentoIdentificacion?.abreviatura }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tramitesApp.persona.tipoPersona">Tipo Persona</span></dt>
+                <dd>
+                    <div *ngIf="persona.tipoPersona">
+                        <a [routerLink]="['/tipo-persona', persona.tipoPersona?.id, 'view']">{{ persona.tipoPersona?.codigo }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/persona', persona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
